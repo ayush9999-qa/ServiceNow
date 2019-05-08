@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
 public class Branch {
 	// Identifying web elements
@@ -28,11 +27,11 @@ public class Branch {
 	@FindBy(xpath = "//*[@name='code']")
 	private WebElement code;
 	
-	@FindBy(xpath = "//*[@class='form-group'][2]/div")
-	private WebElement branchError;
+	@FindBy(xpath = "//*[@id='saveBranchModal']/div/div/form/div[2]/div[2]/div")
+	private WebElement branchNameError;
 	
-	@FindBy(xpath = "//*[@class='form-group'][3]/div")
-	private WebElement codeError;
+	@FindBy(xpath = "//*[@id='saveBranchModal']/div/div/form/div[2]/div[3]/div")
+	private WebElement branchCodeError;
 	
 	@FindBy(xpath = "//form[@name='editForm']/div[3]/button[1]")
 	private WebElement cancel;
@@ -81,9 +80,21 @@ public class Branch {
 		return Integer.parseInt(branches.get(branches.size() - 1).findElement(By.xpath("//*td[1]")).getText());				
 	}
 	
-	public String getErrorBranch(String branchName) {
+	public String getErrorBranchName(String branchName) {
+		createSaveButton.get(0).click();
 		name.sendKeys(branchName);
+		if (validateBranchName(branchName))
+			return "";
 		
-		return null;
+		return branchNameError.getText();
+	}
+	
+	public String getErrorBranchCode(String branchCode) {
+		createSaveButton.get(0).click();
+		code.sendKeys(branchCode);
+		if (validateBranchCode(branchCode))
+			return "";
+		
+		return branchCodeError.getText();
 	}
 }
