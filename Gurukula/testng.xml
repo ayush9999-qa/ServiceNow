@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+  	<parameter name="adminUser" value="admin" />
+  	<parameter name="adminPassword" value="admin" />
+  	<parameter name="branchName" value="branch" />
+  	<parameter name="branchCode" value="B1" />
+  	<parameter name="invalidBranchName" value="abd@67" />
+  	
+  	<parameter name="invalidBranchCode" value="abd@67" />
+  	<parameter name="newBranch" value="BranchNew" />
+  	<parameter name="newCode" value="BRANCH" />
+  	<parameter name="branchName2" value="branchNext" />
+  	<parameter name="branchCode2" value="B2" />
+  	
+  	<parameter name="invalidAdminUser" value="admin1" />
+  	<parameter name="staffName" value="staff" />
+  	<parameter name="invalidStaffName" value="abd@67" />
+  	<parameter name="newStaff" value="NewStaffName" />
+  	<parameter name="queryStaffName" value="NewQueryStaff" />
+  
+  	<test name="Branch Tests">
+    	<classes>
+      		<class name="ServiceNow.Gurukula.BranchTests"/>      
+    	</classes>
+  	</test>
+  
+  	<test name="Login tests">
+  		<classes>
+  	  		<class name="ServiceNow.Gurukula.LoginTests"/>      
+  		</classes>
+  	</test>
+  
+  	<test name="Staff test">
+  		<classes>
+  	  		<class name="ServiceNow.Gurukula.StaffTests"/>
+  		</classes>
+  	</test>
+</suite> <!-- Suite -->

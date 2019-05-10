@@ -1,57 +1,277 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="9" passed="9">
+<testng-results skipped="0" failed="0" ignored="0" total="19" passed="19">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18691" started-at="2019-05-10T11:45:33Z" finished-at="2019-05-10T11:45:52Z">
+  <suite name="Suite" duration-ms="39983" started-at="2019-05-10T17:34:19Z" finished-at="2019-05-10T17:34:59Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18691" started-at="2019-05-10T11:45:33Z" finished-at="2019-05-10T11:45:52Z">
+    <test name="Branch Tests" duration-ms="17687" started-at="2019-05-10T17:34:19Z" finished-at="2019-05-10T17:34:37Z">
       <class name="ServiceNow.Gurukula.BranchTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="setUp" is-config="true" duration-ms="6004" started-at="2019-05-10T11:45:33Z" finished-at="2019-05-10T11:45:39Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="setUp" is-config="true" duration-ms="4592" started-at="2019-05-10T17:34:19Z" finished-at="2019-05-10T17:34:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="openBranchPageTest()[pri:1, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="openBranchPageTest" duration-ms="1415" started-at="2019-05-10T11:45:39Z" description="Open branches page" finished-at="2019-05-10T11:45:41Z">
+        <test-method status="PASS" signature="openBranchPageTest(java.lang.String, java.lang.String)[pri:1, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="openBranchPageTest" duration-ms="1484" started-at="2019-05-10T17:34:24Z" description="Verify to open branch page" finished-at="2019-05-10T17:34:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBranchPageTest -->
-        <test-method status="PASS" signature="createNewBranchTest()[pri:2, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="createNewBranchTest" duration-ms="1187" started-at="2019-05-10T11:45:41Z" description="Create new branch" finished-at="2019-05-10T11:45:42Z">
+        <test-method status="PASS" signature="createNewBranchTest(java.lang.String, java.lang.String)[pri:2, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="createNewBranchTest" duration-ms="1382" started-at="2019-05-10T17:34:25Z" description="Verify to create new branch" finished-at="2019-05-10T17:34:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[branch]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[B1]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createNewBranchTest -->
-        <test-method status="PASS" signature="invalidBranchNameTest()[pri:3, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="invalidBranchNameTest" duration-ms="1052" started-at="2019-05-10T11:45:42Z" description="Add branch with invalid name" finished-at="2019-05-10T11:45:43Z">
+        <test-method status="PASS" signature="invalidBranchNameTest(java.lang.String)[pri:3, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="invalidBranchNameTest" duration-ms="1070" started-at="2019-05-10T17:34:27Z" description="Verify to add branch with invalid name" finished-at="2019-05-10T17:34:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[abd@67]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- invalidBranchNameTest -->
-        <test-method status="PASS" signature="invalidBranchCodeTest()[pri:4, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="invalidBranchCodeTest" duration-ms="1165" started-at="2019-05-10T11:45:43Z" description="Add branch with invalid name" finished-at="2019-05-10T11:45:44Z">
+        <test-method status="PASS" signature="invalidBranchCodeTest(java.lang.String)[pri:4, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="invalidBranchCodeTest" duration-ms="1043" started-at="2019-05-10T17:34:28Z" description="Verify to add branch with invalid name" finished-at="2019-05-10T17:34:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[abd@67]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- invalidBranchCodeTest -->
-        <test-method status="PASS" signature="viewBranchTest()[pri:5, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="viewBranchTest" duration-ms="495" started-at="2019-05-10T11:45:44Z" description="View branch" finished-at="2019-05-10T11:45:45Z">
+        <test-method status="PASS" signature="viewBranchTest()[pri:5, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="viewBranchTest" duration-ms="281" started-at="2019-05-10T17:34:29Z" description="Verify to view added branch" finished-at="2019-05-10T17:34:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- viewBranchTest -->
-        <test-method status="PASS" signature="editBranch()[pri:6, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="editBranch" duration-ms="1296" started-at="2019-05-10T11:45:45Z" description="Edit branch" finished-at="2019-05-10T11:45:46Z">
+        <test-method status="PASS" signature="editBranch(java.lang.String, java.lang.String)[pri:6, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="editBranch" duration-ms="1581" started-at="2019-05-10T17:34:29Z" description="Verify to edit added branch" finished-at="2019-05-10T17:34:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[BranchNew]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[BRANCH]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- editBranch -->
-        <test-method status="PASS" signature="queryBranchByCode()[pri:7, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="queryBranchByCode" duration-ms="1600" started-at="2019-05-10T11:45:46Z" description="Query branch" depends-on-methods="ServiceNow.Gurukula.BranchTests.createNewBranchTest" finished-at="2019-05-10T11:45:48Z">
+        <test-method status="PASS" signature="queryBranchByCode(java.lang.String, java.lang.String)[pri:7, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="queryBranchByCode" duration-ms="1821" started-at="2019-05-10T17:34:31Z" description="Verify to query branch by branch code" depends-on-methods="ServiceNow.Gurukula.BranchTests.createNewBranchTest" finished-at="2019-05-10T17:34:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[branchNext]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[B2]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- queryBranchByCode -->
-        <test-method status="PASS" signature="queryBranchByName()[pri:7, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="queryBranchByName" duration-ms="1625" started-at="2019-05-10T11:45:48Z" description="Query branch" depends-on-methods="ServiceNow.Gurukula.BranchTests.createNewBranchTest" finished-at="2019-05-10T11:45:49Z">
+        <test-method status="PASS" signature="queryBranchByName(java.lang.String, java.lang.String)[pri:7, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="queryBranchByName" duration-ms="1976" started-at="2019-05-10T17:34:33Z" description="Verify to query branches by branch name" depends-on-methods="ServiceNow.Gurukula.BranchTests.createNewBranchTest" finished-at="2019-05-10T17:34:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[branchNext]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[B2]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- queryBranchByName -->
-        <test-method status="PASS" signature="deleteBranch()[pri:8, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="deleteBranch" duration-ms="1535" started-at="2019-05-10T11:45:49Z" description="Delete branch" depends-on-methods="ServiceNow.Gurukula.BranchTests.editBranch" finished-at="2019-05-10T11:45:51Z">
+        <test-method status="PASS" signature="deleteBranch(java.lang.String)[pri:8, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="deleteBranch" duration-ms="1440" started-at="2019-05-10T17:34:35Z" description="Verify to delete branch" depends-on-methods="ServiceNow.Gurukula.BranchTests.editBranch" finished-at="2019-05-10T17:34:36Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[BranchNew]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteBranch -->
-        <test-method status="PASS" signature="closeDriver()[pri:0, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="closeDriver" is-config="true" duration-ms="1258" started-at="2019-05-10T11:45:51Z" finished-at="2019-05-10T11:45:52Z">
+        <test-method status="PASS" signature="closeDriver()[pri:0, instance:ServiceNow.Gurukula.BranchTests@2b98378d]" name="closeDriver" is-config="true" duration-ms="970" started-at="2019-05-10T17:34:36Z" finished-at="2019-05-10T17:34:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeDriver -->
       </class> <!-- ServiceNow.Gurukula.BranchTests -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Branch Tests -->
+    <test name="Login tests" duration-ms="7019" started-at="2019-05-10T17:34:37Z" finished-at="2019-05-10T17:34:44Z">
+      <class name="ServiceNow.Gurukula.LoginTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:ServiceNow.Gurukula.LoginTests@39c0f4a]" name="setUp" is-config="true" duration-ms="3905" started-at="2019-05-10T17:34:37Z" finished-at="2019-05-10T17:34:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="loginAdminInvalid(java.lang.String, java.lang.String)[pri:1, instance:ServiceNow.Gurukula.LoginTests@39c0f4a]" name="loginAdminInvalid" duration-ms="1171" started-at="2019-05-10T17:34:41Z" description="Verify to logn with invalid username and password" finished-at="2019-05-10T17:34:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginAdminInvalid -->
+        <test-method status="PASS" signature="loginAdmin(java.lang.String, java.lang.String)[pri:2, instance:ServiceNow.Gurukula.LoginTests@39c0f4a]" name="loginAdmin" duration-ms="418" started-at="2019-05-10T17:34:42Z" description="Verify to login with valid username and password" finished-at="2019-05-10T17:34:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginAdmin -->
+        <test-method status="PASS" signature="logout()[pri:3, instance:ServiceNow.Gurukula.LoginTests@39c0f4a]" name="logout" duration-ms="572" started-at="2019-05-10T17:34:43Z" description="Verify to log out from the application" finished-at="2019-05-10T17:34:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method status="PASS" signature="closeDriver()[pri:0, instance:ServiceNow.Gurukula.LoginTests@39c0f4a]" name="closeDriver" is-config="true" duration-ms="945" started-at="2019-05-10T17:34:43Z" finished-at="2019-05-10T17:34:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ServiceNow.Gurukula.LoginTests -->
+    </test> <!-- Login tests -->
+    <test name="Staff test" duration-ms="15222" started-at="2019-05-10T17:34:44Z" finished-at="2019-05-10T17:34:59Z">
+      <class name="ServiceNow.Gurukula.StaffTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:ServiceNow.Gurukula.StaffTests@1a968a59]" name="setUp" is-config="true" duration-ms="3716" started-at="2019-05-10T17:34:44Z" finished-at="2019-05-10T17:34:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="createBranchToSelect(java.lang.String, java.lang.String)[pri:0, instance:ServiceNow.Gurukula.StaffTests@1a968a59]" name="createBranchToSelect" is-config="true" duration-ms="2657" started-at="2019-05-10T17:34:48Z" finished-at="2019-05-10T17:34:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createBranchToSelect -->
+        <test-method status="PASS" signature="openStaffPageTest()[pri:1, instance:ServiceNow.Gurukula.StaffTests@1a968a59]" name="openStaffPageTest" duration-ms="567" started-at="2019-05-10T17:34:50Z" description="Verify to open Staffs page" finished-at="2019-05-10T17:34:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openStaffPageTest -->
+        <test-method status="PASS" signature="createNewStaffTest(java.lang.String)[pri:2, instance:ServiceNow.Gurukula.StaffTests@1a968a59]" name="createNewStaffTest" duration-ms="1431" started-at="2019-05-10T17:34:51Z" description="Verify to create new staff" finished-at="2019-05-10T17:34:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[staff]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createNewStaffTest -->
+        <test-method status="PASS" signature="invalidStaffNameTest(java.lang.String)[pri:3, instance:ServiceNow.Gurukula.StaffTests@1a968a59]" name="invalidStaffNameTest" duration-ms="1044" started-at="2019-05-10T17:34:52Z" description="Verify to add staff with invalid name" finished-at="2019-05-10T17:34:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[abd@67]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidStaffNameTest -->
+        <test-method status="PASS" signature="viewStaffTest()[pri:4, instance:ServiceNow.Gurukula.StaffTests@1a968a59]" name="viewStaffTest" duration-ms="327" started-at="2019-05-10T17:34:54Z" description="Verify to view added staff" finished-at="2019-05-10T17:34:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- viewStaffTest -->
+        <test-method status="PASS" signature="editStaff(java.lang.String)[pri:5, instance:ServiceNow.Gurukula.StaffTests@1a968a59]" name="editStaff" duration-ms="1159" started-at="2019-05-10T17:34:54Z" description="Verify to edit added staff" finished-at="2019-05-10T17:34:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[NewStaffName]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- editStaff -->
+        <test-method status="PASS" signature="queryStaffByName(java.lang.String)[pri:6, instance:ServiceNow.Gurukula.StaffTests@1a968a59]" name="queryStaffByName" duration-ms="1857" started-at="2019-05-10T17:34:55Z" description="Verify to query staff by staff name" depends-on-methods="ServiceNow.Gurukula.StaffTests.createNewStaffTest" finished-at="2019-05-10T17:34:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[NewQueryStaff]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- queryStaffByName -->
+        <test-method status="PASS" signature="deleteStaff(java.lang.String)[pri:7, instance:ServiceNow.Gurukula.StaffTests@1a968a59]" name="deleteStaff" duration-ms="1518" started-at="2019-05-10T17:34:57Z" description="Verify to delete staff" depends-on-methods="ServiceNow.Gurukula.StaffTests.editStaff" finished-at="2019-05-10T17:34:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[NewStaffName]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteStaff -->
+        <test-method status="PASS" signature="closeDriver()[pri:0, instance:ServiceNow.Gurukula.StaffTests@1a968a59]" name="closeDriver" is-config="true" duration-ms="935" started-at="2019-05-10T17:34:58Z" finished-at="2019-05-10T17:34:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- ServiceNow.Gurukula.StaffTests -->
+    </test> <!-- Staff test -->
+  </suite> <!-- Suite -->
 </testng-results>

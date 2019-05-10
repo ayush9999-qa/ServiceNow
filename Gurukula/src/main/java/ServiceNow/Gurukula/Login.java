@@ -30,9 +30,10 @@ public class Login extends PageObjectInit {
 	}
 
 	/**
-	 * Login to the application
-	 * @param : user (username)
-	 * @param : pass (password)
+	 * This is to verify Login to the application
+	 * @param user
+	 * @param pass
+	 * @return object of Welcome Login (Page after login is successful)
 	 */
 	public WelcomeLogin login(String user, String pass) {
 		//wait.until(ExpectedConditions.elementToBeClickable(username));
@@ -58,6 +59,10 @@ public class Login extends PageObjectInit {
 		register.click();
 	}
 	
+	/**
+	 * This is to verify authentication message while logging in
+	 * @return authentication message
+	 */
 	public String getAuthenticationMessage() {
 		return authenticationError.getText();
 	}

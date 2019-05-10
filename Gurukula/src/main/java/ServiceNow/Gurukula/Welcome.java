@@ -1,5 +1,7 @@
 package ServiceNow.Gurukula;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,16 +14,20 @@ public class Welcome extends PageObjectInit {
 	
 	@FindBy(partialLinkText = "Register")
 	private WebElement register;
+	
+	@FindBy(css = "div.alert")
+	private List<WebElement> loginRegister; 
 		
 	public Welcome(WebDriver driver) {
 		super(driver);
 	}
 
 	/**
-	 * Click on login
+	 * This is to verify clicking on Login
+	 * @return Login object
 	 */
 	public Login loginClick() {
-		login.click();
+		login.click();		
 		return new Login(driver);
 	}
 	
@@ -30,5 +36,9 @@ public class Welcome extends PageObjectInit {
 	 */
 	public void registerClick() {		
 		register.click();
+	}
+	
+	public String getLoginText() {
+		return loginRegister.get(0).getText();
 	}
 }

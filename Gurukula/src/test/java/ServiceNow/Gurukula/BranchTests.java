@@ -3,8 +3,10 @@ package ServiceNow.Gurukula;
 import java.util.List;
 
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+// This class includes branch tests
 public class BranchTests extends BaseInit {
 	Welcome welcome;
 	Login login;
@@ -13,19 +15,19 @@ public class BranchTests extends BaseInit {
 	BranchDetails branchDetails;
 	String[] branchElements;
 	
-	@Test(description = "Open branches page", priority = 1)
-	public void openBranchPageTest() {
+	@Parameters({"adminUser", "adminPassword"})
+	@Test(description = "Verify to open branch page", priority = 1)
+	public void openBranchPageTest(String adminUser, String adminPassword) {
 		welcome = new Welcome(driver);
 		login = welcome.loginClick();
-		welcomeLogin = login.login("admin", "admin");
+		welcomeLogin = login.login(adminUser, adminPassword);
 		branch = welcomeLogin.selectBranch();
 		Assert.assertEquals(branch.getTitle(), "Branches");
 	}
 	
-	@Test(description = "Create new branch", priority = 2)
-	public void createNewBranchTest() {
-		String branchName = "branch";
-		String branchCode = "B1";
+	@Parameters({"branchName", "branchCode"})
+	@Test(description = "Verify to create new branch", priority = 2)
+	public void createNewBranchTest(String branchName, String branchCode) {
 		branchElements = branch.createBranch(branchName, branchCode);
 		
 		// 'branchElements' will be null if branch name and code are invalid
@@ -34,52 +36,47 @@ public class BranchTests extends BaseInit {
 		// Verify branch elements
 		Assert.assertTrue(Integer.parseInt(branchElements[0]) > 0, "Verify if branch with code greater than 0 is created");
 		Assert.assertEquals(branchElements[1], branchName, "Verify if branch is added with supplied name");
-		Assert.assertEquals(branchElements[2], branchCode, "Verify if branch is added with supplied code");
-		System.out.println("Added branch code - " + branchElements[0]);
-		System.out.println("Added branch code - " + branchElements[1]);
-		System.out.println("Added branch code - " + branchElements[2]);
+		Assert.assertEquals(branchElements[2], branchCode, "Verify if branch is added with supplied code");		
 	}
 	
-	@Test(description = "Add branch with invalid name", priority = 3)
-	public void invalidBranchNameTest() {
-		String branchName = "abd@67";
+	@Parameters({"invalidBranchName"})
+	@Test(description = "Verify to add branch with invalid name", priority = 3)
+	public void invalidBranchNameTest(String invalidBranchName) {
 		String error = "";
 		String expected = "";
-		if (branchName.length() < 5) {
-			error = branch.getErrorBranchName(branchName);
+		if (invalidBranchName.length() < 5) {
+			error = branch.getErrorBranchName(invalidBranchName);
 			expected = "This field is required to be at least 5 characters.\n" + 
 					"This field should follow pattern ^[a-zA-Z\\s]*$.";
 			Assert.assertEquals(error, expected);
 		}
 		else {
-			error = branch.getErrorBranchName(branchName);
+			error = branch.getErrorBranchName(invalidBranchName);
 			expected = "This field should follow pattern ^[a-zA-Z\\s]*$.";
 			Assert.assertEquals(error, expected);
 		}
-		System.out.println(error);
 	}
 	
-	@Test(description = "Add branch with invalid name", priority = 4)
-	public void invalidBranchCodeTest() {
-		String branchCode = "abd@67";
+	@Parameters({"invalidBranchCode"})
+	@Test(description = "Verify to add branch with invalid name", priority = 4)
+	public void invalidBranchCodeTest(String invalidBranchCode) {
 		String error = "";
 		String expected = "";
-		if (branchCode.length() < 2) {
-			error = branch.getErrorBranchName(branchCode);
+		if (invalidBranchCode.length() < 2) {
+			error = branch.getErrorBranchName(invalidBranchCode);
 			expected = "This field is required to be at least 2 characters.\n" + 
 					"This field should follow pattern ^[A-Z0-9]*$.";
 			
 			Assert.assertEquals(error, expected);
 		}
 		else {
-			error = branch.getErrorBranchCode(branchCode);
+			error = branch.getErrorBranchCode(invalidBranchCode);
 			expected = "This field should follow pattern ^[A-Z0-9]*$.";
 			Assert.assertEquals(error, expected);
 		}
-		System.out.println(error);
 	}
 	
-	@Test(description = "View branch", priority = 5)
+	@Test(description = "Verify to view added branch", priority = 5)
 	public void viewBranchTest() {
 		branchDetails = branch.viewBranch();		
 		Assert.assertEquals("Branch " + branchElements[0], branchDetails.getTitle());
@@ -89,62 +86,57 @@ public class BranchTests extends BaseInit {
 		Assert.assertEquals(addedBranch[1], branchElements[2]);		
 	}
 	
-	@Test(description = "Edit branch", priority = 6)
-	public void editBranch() {
-		String newBranch = "BranchNew";
-		String newCode = "BRANCH";
-		
+	@Parameters({"newBranch", "newCode"})
+	@Test(description = "Verify to edit added branch", priority = 6)
+	public void editBranch(String newBranch, String newCode) {	
 		String[] editedValues = branch.editBranch(newBranch, newCode);
 		Assert.assertNotNull(editedValues);
 		Assert.assertEquals(editedValues[0], newBranch);
 		Assert.assertEquals(editedValues[1], newCode);
 	}
 	
-	@Test(description = "Query branch", priority = 7, dependsOnMethods = "createNewBranchTest")
-	public void queryBranchByName() {
+	@Parameters({"branchName2", "branchCode2"})
+	@Test(description = "Verify to query branches by branch name", priority = 7, dependsOnMethods = "createNewBranchTest")
+	public void queryBranchByName(String branchName2, String branchCode2) {
 		// Add another branch to test
-		String branchName = "branchNext";
-		String branchCode = "B2";
-		branchElements = branch.createBranch(branchName, branchCode);
+		branchElements = branch.createBranch(branchName2, branchCode2);
 		
 		// 'branchElements' will be null branch is not added
 		Assert.assertNotNull(branchElements);
 		
 		// Query branch
-		List<String> queryBranches = branch.queryBranchByName(branchName);
+		List<String> queryBranches = branch.queryBranchByName(branchName2);
 		
 		// Asserting branch names
 		for (String name : queryBranches) {
-			Assert.assertTrue(name.contains(branchName));
+			Assert.assertTrue(name.contains(branchName2));
 		}
 	}
 	
-	@Test(description = "Query branch", priority = 7, dependsOnMethods = "createNewBranchTest")
-	public void queryBranchByCode() {
+	@Parameters({"branchName2", "branchCode2"})
+	@Test(description = "Verify to query branch by branch code", priority = 7, dependsOnMethods = "createNewBranchTest")
+	public void queryBranchByCode(String branchName2, String branchCode2) {
 		// Add another branch to test
-		String branchName = "branchNext";
-		String branchCode = "B1";
-		branchElements = branch.createBranch(branchName, branchCode);
+		branchElements = branch.createBranch(branchName2, branchCode2);
 		
 		// 'branchElements' will be null branch is not added
 		Assert.assertNotNull(branchElements);
 		
 		// Query branch
-		List<String> queryBranches = branch.queryBranchByCode(branchCode);
+		List<String> queryBranches = branch.queryBranchByCode(branchCode2);
 		
 		// Asserting branch names
 		for (String name : queryBranches) {
-			Assert.assertTrue(name.contains(branchCode));
+			Assert.assertTrue(name.contains(branchCode2));
 		}
 	}
 	
-	@Test(description = "Delete branch", priority = 8, dependsOnMethods = "editBranch")
-	public void deleteBranch() {
+	@Parameters({"newBranch"})
+	@Test(description = "Verify to delete branch", priority = 8, dependsOnMethods = "editBranch")
+	public void deleteBranch(String newBranch) {
 		// Search for added branch
-		branch.queryBranchByName("BranchNew");
+		branch.queryBranchByName(newBranch);
 		String[] branchIdBeforeAfterDelete = branch.deleteBranch();
-		System.out.println("Before delete - " + branchIdBeforeAfterDelete[0]);
-		System.out.println("After delete - " + branchIdBeforeAfterDelete[1]);
 		Assert.assertFalse(branchIdBeforeAfterDelete[0] == branchIdBeforeAfterDelete[1], "Verify if branch code of last branch before and after delete are not same");
 	}
 	

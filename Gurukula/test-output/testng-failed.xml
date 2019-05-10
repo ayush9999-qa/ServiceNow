@@ -5,11 +5,17 @@
     <classes>
       <class name="ServiceNow.Gurukula.BranchTests">
         <methods>
+          <include name="editBranch"/>
+          <include name="invalidBranchCodeTest"/>
           <include name="queryBranchByName"/>
+          <include name="invalidBranchNameTest"/>
           <include name="setUp"/>
           <include name="closeDriver"/>
           <include name="createNewBranchTest"/>
           <include name="queryBranchByCode"/>
+          <include name="viewBranchTest"/>
+          <include name="openBranchPageTest"/>
+          <include name="deleteBranch"/>
         </methods>
       </class> <!-- ServiceNow.Gurukula.BranchTests -->
     </classes>

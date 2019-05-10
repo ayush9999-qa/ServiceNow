@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WelcomeLogin extends PageObjectInit {
 	
@@ -25,20 +27,27 @@ public class WelcomeLogin extends PageObjectInit {
 	}
 
 	/**
-	 * Select 'Branch' option 
+	 * This is to select Branch option from the dropdown
+	 * @return Branch object
 	 */
-	public Branch selectBranch() {		
+	public Branch selectBranch() {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		dropdown.get(0).click();
+		wait.until(ExpectedConditions.visibilityOfAllElements(dropdownElements.get(0).findElements(By.tagName("li"))));
 		dropdownElements.get(0).findElements(By.tagName("li")).get(0).click();
 		return new Branch(driver);
 	}
 	
 	/**
-	 * Select 'Staff' option 
+	 * This is to select Staff option from the dropdown
+	 * @return Staff object
 	 */
-	public void selectStaff() {
-		Select entities = new Select(dropdown.get(0));
-		entities.selectByVisibleText("Staff");
+	public Staff selectStaff() {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		dropdown.get(0).click();
+		wait.until(ExpectedConditions.visibilityOfAllElements(dropdownElements.get(0).findElements(By.tagName("li"))));
+		dropdownElements.get(0).findElements(By.tagName("li")).get(1).click();
+		return new Staff(driver);
 	}
 	
 	/**
@@ -75,9 +84,11 @@ public class WelcomeLogin extends PageObjectInit {
 		return new Welcome(driver);
 	}
 	
+	/**
+	 * This is to get text displayed after logging in
+	 * @return login text
+	 */
 	public String getLoginText() {
-		//System.out.println(wait.until(ExpectedConditions.visibilityOf(welcomeMessage)).getText());
-		//return wait.until(ExpectedConditions.visibilityOf(welcomeMessage)).getText();
 		return welcomeMessage.getText();
 	}
 }

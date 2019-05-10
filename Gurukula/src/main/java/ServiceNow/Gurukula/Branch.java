@@ -39,9 +39,6 @@ public class Branch extends PageObjectInit {
 	@FindBy(xpath = "//*[@id='saveBranchModal']/div/div/form/div[2]/div[3]/div")
 	private WebElement branchCodeError;
 	
-	@FindBy(xpath = "//form[@name='editForm']/div[3]/button[1]")
-	private WebElement cancel;
-	
 	@FindBy(xpath = "//form[@name='editForm']//button")
 	private List<WebElement> formButtons;
 	
@@ -89,7 +86,7 @@ public class Branch extends PageObjectInit {
 	 * This is to create branch
 	 * @param branchName
 	 * @param branchCode
-	 * @return branchId
+	 * @return branchId, branchName and branchCode
 	 */
 	public String[] createBranch(String branchName, String branchCode) {
 		String[] branchElements = new String[3];
@@ -114,12 +111,20 @@ public class Branch extends PageObjectInit {
 		return branchElements;
 	}
 	
+	/**
+	 * This is to get error message when incorrect branch name is entered 
+	 * @param branchName
+	 * @return error message
+	 */
 	public String getErrorBranchName(String branchName) {
 		String nameError = "";		
 		createSaveButton.get(0).click();
 		name.sendKeys(branchName);
+		
+		// Return empty string when valid name is entered
 		if (validateBranchName(branchName))
 			return "";
+		
 		nameError = branchNameError.getText();
 		formButtons.get(1).click();
 		
@@ -133,12 +138,20 @@ public class Branch extends PageObjectInit {
 		return nameError;
 	}
 	
+	/**
+	 * This is to get error message when incorrect branch code is entered
+	 * @param branchCode
+	 * @return error message
+	 */
 	public String getErrorBranchCode(String branchCode) {
 		String codeError = "";
 		createSaveButton.get(0).click();
 		code.sendKeys(branchCode);
+		
+		// Return empty string when valid code is entered
 		if (validateBranchCode(branchCode))
 			return "";
+		
 		codeError = branchCodeError.getText();
 		formButtons.get(1).click();
 		
@@ -152,6 +165,10 @@ public class Branch extends PageObjectInit {
 		return codeError;
 	}
 	
+	/**
+	 * This is to click on 'View' branch
+	 * @return BranchDetails object
+	 */
 	public BranchDetails viewBranch() {
 		// Check if branch exists
 		if (branches.size() <= 0)
@@ -162,6 +179,12 @@ public class Branch extends PageObjectInit {
 		return new BranchDetails(driver);
 	}
 	
+	/**
+	 * This is to validate editing of the branch
+	 * @param newBranchName
+	 * @param newBranchCode
+	 * @return edited branch's name and code
+	 */
 	public String[] editBranch(String newBranchName, String newBranchCode) {
 		String[] editedBranchElements = new String[2];
 		
@@ -198,6 +221,11 @@ public class Branch extends PageObjectInit {
 		return editedBranchElements;
 	}
 	
+	/**
+	 * This is to verify querying the branch by branch name
+	 * @param branchName
+	 * @return list of returned branches
+	 */
 	public List<String> queryBranchByName(String branchName) {
 		List<String> searchElements = new ArrayList<String>();
 		searchQuery.clear();
@@ -224,6 +252,10 @@ public class Branch extends PageObjectInit {
 		return ((searchElements.size() > 0) ? searchElements : null);
 	}
 	
+	/**
+	 * This is to verify deletion of branch
+	 * @return before and after branch names of last branch
+	 */
 	public String[] deleteBranch() {
 		// Storing branch code, before and after deletion
 		String elementsDelete[] = new String[2];

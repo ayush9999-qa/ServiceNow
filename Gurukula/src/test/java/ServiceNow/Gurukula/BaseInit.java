@@ -7,8 +7,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+// Class to initialize the driver and start the browser
 public class BaseInit {
-	public static WebDriver driver;
+	public WebDriver driver;
 	
 	@BeforeClass
 	public void setUp() {

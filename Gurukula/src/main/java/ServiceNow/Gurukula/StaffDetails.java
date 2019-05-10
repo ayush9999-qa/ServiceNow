@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class BranchDetails extends PageObjectInit {
+public class StaffDetails extends PageObjectInit {
 
-	public BranchDetails(WebDriver driver) {
+	public StaffDetails(WebDriver driver) {
 		super(driver);
 	}
 	
@@ -15,32 +15,31 @@ public class BranchDetails extends PageObjectInit {
 	private WebElement title;
 	
 	@FindBy(xpath = "//table/tbody/tr[1]/td[2]/input")
-	private WebElement branchName;
+	private WebElement staffName;
 	
 	@FindBy(xpath = "//table/tbody/tr[2]/td[2]/input")
-	private WebElement branchCode;
+	private WebElement branchName;
 	
 	@FindBy(css = "button.btn")
 	private WebElement back;
 	
 	/**
-	 * This is to verify branch details
-	 * @return array of branch name and branch code
+	 * This is to get staff details
+	 * @return staff's name and selected branch
 	 */
-	public String[] getBranchDetails() {
-		String[] branchDetails = new String[2];
-		branchDetails[0] = branchName.getAttribute("value");
-		branchDetails[1] = branchCode.getAttribute("value");
+	public String[] getStaffDetails() {
+		String[] staffDetails = new String[2];
+		staffDetails[0] = staffName.getAttribute("value");
+		staffDetails[1] = branchName.getAttribute("value");
 		back.click();
-		return branchDetails;
+		return staffDetails;
 	}
 	
 	/**
-	 * This is to verify the title of the page
+	 * This is to get page's title
 	 * @return title
 	 */
 	public String getTitle() {
 		return title.getText();
 	}
-	
 }
