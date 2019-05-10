@@ -1,25 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="9" passed="9">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="14038" started-at="2019-05-08T18:34:02Z" finished-at="2019-05-08T18:34:16Z">
+  <suite name="Default suite" duration-ms="18691" started-at="2019-05-10T11:45:33Z" finished-at="2019-05-10T11:45:52Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14038" started-at="2019-05-08T18:34:02Z" finished-at="2019-05-08T18:34:16Z">
-      <class name="ServiceNow.Gurukula.LoginTests">
-        <test-method status="PASS" signature="initiateGurukula()[pri:0, instance:ServiceNow.Gurukula.LoginTests@c038203]" name="initiateGurukula" is-config="true" duration-ms="9506" started-at="2019-05-08T18:34:02Z" finished-at="2019-05-08T18:34:11Z">
+    <test name="Default test" duration-ms="18691" started-at="2019-05-10T11:45:33Z" finished-at="2019-05-10T11:45:52Z">
+      <class name="ServiceNow.Gurukula.BranchTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="setUp" is-config="true" duration-ms="6004" started-at="2019-05-10T11:45:33Z" finished-at="2019-05-10T11:45:39Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initiateGurukula -->
-        <test-method status="PASS" signature="loginAdmin()[pri:0, instance:ServiceNow.Gurukula.LoginTests@c038203]" name="loginAdmin" duration-ms="3547" started-at="2019-05-08T18:34:11Z" finished-at="2019-05-08T18:34:15Z">
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="openBranchPageTest()[pri:1, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="openBranchPageTest" duration-ms="1415" started-at="2019-05-10T11:45:39Z" description="Open branches page" finished-at="2019-05-10T11:45:41Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAdmin -->
-        <test-method status="PASS" signature="closeDriver()[pri:0, instance:ServiceNow.Gurukula.LoginTests@c038203]" name="closeDriver" is-config="true" duration-ms="958" started-at="2019-05-08T18:34:15Z" finished-at="2019-05-08T18:34:16Z">
+        </test-method> <!-- openBranchPageTest -->
+        <test-method status="PASS" signature="createNewBranchTest()[pri:2, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="createNewBranchTest" duration-ms="1187" started-at="2019-05-10T11:45:41Z" description="Create new branch" finished-at="2019-05-10T11:45:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createNewBranchTest -->
+        <test-method status="PASS" signature="invalidBranchNameTest()[pri:3, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="invalidBranchNameTest" duration-ms="1052" started-at="2019-05-10T11:45:42Z" description="Add branch with invalid name" finished-at="2019-05-10T11:45:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidBranchNameTest -->
+        <test-method status="PASS" signature="invalidBranchCodeTest()[pri:4, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="invalidBranchCodeTest" duration-ms="1165" started-at="2019-05-10T11:45:43Z" description="Add branch with invalid name" finished-at="2019-05-10T11:45:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidBranchCodeTest -->
+        <test-method status="PASS" signature="viewBranchTest()[pri:5, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="viewBranchTest" duration-ms="495" started-at="2019-05-10T11:45:44Z" description="View branch" finished-at="2019-05-10T11:45:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- viewBranchTest -->
+        <test-method status="PASS" signature="editBranch()[pri:6, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="editBranch" duration-ms="1296" started-at="2019-05-10T11:45:45Z" description="Edit branch" finished-at="2019-05-10T11:45:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- editBranch -->
+        <test-method status="PASS" signature="queryBranchByCode()[pri:7, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="queryBranchByCode" duration-ms="1600" started-at="2019-05-10T11:45:46Z" description="Query branch" depends-on-methods="ServiceNow.Gurukula.BranchTests.createNewBranchTest" finished-at="2019-05-10T11:45:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- queryBranchByCode -->
+        <test-method status="PASS" signature="queryBranchByName()[pri:7, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="queryBranchByName" duration-ms="1625" started-at="2019-05-10T11:45:48Z" description="Query branch" depends-on-methods="ServiceNow.Gurukula.BranchTests.createNewBranchTest" finished-at="2019-05-10T11:45:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- queryBranchByName -->
+        <test-method status="PASS" signature="deleteBranch()[pri:8, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="deleteBranch" duration-ms="1535" started-at="2019-05-10T11:45:49Z" description="Delete branch" depends-on-methods="ServiceNow.Gurukula.BranchTests.editBranch" finished-at="2019-05-10T11:45:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteBranch -->
+        <test-method status="PASS" signature="closeDriver()[pri:0, instance:ServiceNow.Gurukula.BranchTests@55f3ddb1]" name="closeDriver" is-config="true" duration-ms="1258" started-at="2019-05-10T11:45:51Z" finished-at="2019-05-10T11:45:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeDriver -->
-      </class> <!-- ServiceNow.Gurukula.LoginTests -->
+      </class> <!-- ServiceNow.Gurukula.BranchTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

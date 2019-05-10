@@ -3,13 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ServiceNow.Gurukula.LoginTests">
+      <class name="ServiceNow.Gurukula.BranchTests">
         <methods>
+          <include name="queryBranchByName"/>
+          <include name="setUp"/>
           <include name="closeDriver"/>
-          <include name="loginAdmin"/>
-          <include name="initiateGurukula"/>
+          <include name="createNewBranchTest"/>
+          <include name="queryBranchByCode"/>
         </methods>
-      </class> <!-- ServiceNow.Gurukula.LoginTests -->
+      </class> <!-- ServiceNow.Gurukula.BranchTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,12 +1,10 @@
 package ServiceNow.Gurukula;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Login {
-	WebDriverWait wait;
+public class Login extends PageObjectInit {
 	
 	// Identifying web elements
 	@FindBy(id = "username")
@@ -23,9 +21,12 @@ public class Login {
 	
 	@FindBy(partialLinkText = "Register")
 	private WebElement register;
+	
+	@FindBy(css = "div.alert-danger")
+	private WebElement authenticationError;
 		
-	public Login(WebDriverWait wait) {
-		this.wait = wait;
+	public Login(WebDriver driver) {
+		super(driver);
 	}
 
 	/**
@@ -33,13 +34,14 @@ public class Login {
 	 * @param : user (username)
 	 * @param : pass (password)
 	 */
-	public void login(String user, String pass) {
-		wait.until(ExpectedConditions.elementToBeClickable(username));
+	public WelcomeLogin login(String user, String pass) {
+		//wait.until(ExpectedConditions.elementToBeClickable(username));
 		username.clear();
 		username.sendKeys(user);
 		password.clear();
 		password.sendKeys(pass);
 		authenticate.click();
+		return new WelcomeLogin(driver);
 	}
 	
 	/**
@@ -54,5 +56,9 @@ public class Login {
 	 */
 	public void registerClick() {
 		register.click();
+	}
+	
+	public String getAuthenticationMessage() {
+		return authenticationError.getText();
 	}
 }

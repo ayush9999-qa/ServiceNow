@@ -1,12 +1,10 @@
 package ServiceNow.Gurukula;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Welcome {
-	WebDriverWait wait;
+public class Welcome extends PageObjectInit {
 	
 	// Identifying web elements
 	@FindBy(linkText = "login")
@@ -15,23 +13,22 @@ public class Welcome {
 	@FindBy(partialLinkText = "Register")
 	private WebElement register;
 		
-	public Welcome(WebDriverWait wait) {
-		this.wait = wait;
+	public Welcome(WebDriver driver) {
+		super(driver);
 	}
 
 	/**
 	 * Click on login
 	 */
-	public void loginClick() {
-		wait.until(ExpectedConditions.elementToBeClickable(login));
+	public Login loginClick() {
 		login.click();
+		return new Login(driver);
 	}
 	
 	/**
 	 * Click on 'Register a new account'
 	 */
-	public void registerClick() {
-		wait.until(ExpectedConditions.elementToBeClickable(register));
+	public void registerClick() {		
 		register.click();
 	}
 }
